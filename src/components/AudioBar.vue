@@ -17,7 +17,7 @@
             name: "我的少年", // 歌曲名字
             artist: "npCswag", // 歌曲演唱者
             url: // 歌曲地址（这里用外链地址）
-              "../assets/Eviraaa.mp3",
+              "http://localhost:7986/Eviraaa.mp3",
             lrc: "", // 歌词
             theme: "rgb(127, 218, 180)", // 播放这首歌曲时的主题色
           },

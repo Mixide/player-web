@@ -1,8 +1,8 @@
 <template>
-  <div class="card">
+  <div class="card list">
     <div class="card-body">
       <div v-for="music in list.musics" :key="music.id">
-        <div class="card">
+        <div class="card music">
           <div class="card-body">
             <div class="row">
               <div class="col-10 music_name">{{ music.name }}</div>
@@ -32,4 +32,10 @@
     font-size: 14px;
     color: gray;
 }  
+.list {
+  height: 620px;
+}
+.music {
+  margin-top: 10px;
+}
 </style>

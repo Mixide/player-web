@@ -3,7 +3,7 @@
     <div class="card-body">
       <div class="row">
         <div class="col-3">
-          <img class="img-fluid" src="../assets/logo.png">
+          <img class="img-fluid" src="../../assets/logo.png">
         </div>
         <div class="col-9">
           <div class="username">{{ user.username }}</div>

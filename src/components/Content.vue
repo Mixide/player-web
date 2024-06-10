@@ -15,7 +15,8 @@ export default{
 </script>
 
 <style scoped>
-  .container{
-    margin-top: 20px
+  .card{
+    margin-top: 20px;
+    height : 670px;
   }
 </style>
