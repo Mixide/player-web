@@ -8,7 +8,7 @@ import (
 
 func main() {
 	// 设置文件服务的根目录
-	fileServerRoot := "./assets"
+	fileServerRoot := "./"
 
 	// 创建HTTP处理器函数
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {

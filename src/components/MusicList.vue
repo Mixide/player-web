@@ -37,5 +37,10 @@
 }
 .music {
   margin-top: 10px;
+  cursor: pointer;
+}
+.music:hover {
+  box-shadow: 2px 2px 10px lightgray;
+  transition: 300ms;
 }
 </style>

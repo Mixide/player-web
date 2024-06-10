@@ -17,7 +17,7 @@
             name: "我的少年", // 歌曲名字
             artist: "npCswag", // 歌曲演唱者
             url: // 歌曲地址（这里用外链地址）
-              "http://localhost:7986/Eviraaa.mp3",
+              "http://localhost:7986/assets/Eviraaa.mp3",
             lrc: "", // 歌词
             theme: "rgb(127, 218, 180)", // 播放这首歌曲时的主题色
           },
@@ -26,7 +26,7 @@
           fixed: false, // 不开启吸底模式
           listFolded: true, // 折叠歌曲列表
           autoplay: false, // 开启自动播放
-          preload: "auto", // 自动预加载歌曲
+          preload: "none", // 自动预加载歌曲
           loop: "all", // 播放循环模式、all全部循环 one单曲循环 none只播放一次
           order: "list", //  播放模式，list列表播放, random随机播放
         },
