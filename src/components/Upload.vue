@@ -3,7 +3,7 @@
         <div class="card-body">
             <div class="mb-3">
               <label for="formFileMultiple" class="form-label">上传音乐</label>
-              <input class="form-control" type="file" id="formFileMultiple" multiple @change="handleFileChange">
+              <input class="form-control" type="file" id="formFile" @change="handleFileChange">
               <button type="button" class="btn btn-primary btn-sm" @click="uploadFiles">上传</button>
             </div>
         </div>
@@ -34,7 +34,7 @@ export default {
         });
 
         // 使用axios发送文件
-        axios.post('/upload', formData, {
+        axios.post('http://localhost:7986/upload', formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
@@ -42,7 +42,7 @@ export default {
         .then(response => {
           console.log('文件上传成功', response);
           // 重置文件列表
-          this.files = [];
+          window.location.reload();
         })
         .catch(error => {
           console.error('文件上传失败', error);

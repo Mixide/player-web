@@ -6,7 +6,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col-10 music_name">{{ music.name }}</div>
-              <div class="col-2 singer">歌手：{{ music.singer }}</div>
+              <div class="col-2 artist">歌手：{{ music.artist }}</div>
             </div>
           </div>
         </div>
@@ -16,12 +16,17 @@
 </template>
 
 <script>
+
   export default{
     name:"MusicList",
     props:{
       list:{
         type:Object,
         required:true
+      },
+      ap:{
+        type:Object,
+        required:false
       }
     }
   }

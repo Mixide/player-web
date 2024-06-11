@@ -1,4 +1,5 @@
 <template>
+  <AudioBar v-if="music_list.musics.length > 0" :audio="music_list.musics"/>
   <Content>
     <div class="row">
         <div class="col-3">
@@ -17,7 +18,9 @@
   import UserInfo from '../components/UserInfo';
   import MusicList from '../components/MusicList';
   import Upload from '../components/Upload';
-  import {reactive} from 'vue';
+  import AudioBar from '../components/AudioBar';
+  import {onMounted, reactive, ref} from 'vue';
+  import axios from 'axios';
   export default {
     name: 'MusicSpace',
     components:{
@@ -25,30 +28,33 @@
       UserInfo,
       MusicList,
       Upload,
+      AudioBar,
     },
     setup() {
-      const user = reactive({
+      const user = ref({
         id: 1,
         username: "test",
-        music_nums: 21,
+        music_nums: 0,
       });
-      const music_list = reactive({
-        count:0,
-        musics:[
-          {
-            id:1,
-            name:"my_music1",
-            singer: "Zhou",
-            music_src:"file",
-          },
-          {
-            id:2,
-            name:"my_music2",
-            singer: "Li",
-            music_src:"file",
-          }
-        ]
-      })
+      const music_list = ref({
+        musics:[]
+      });
+      const fetchList = async () => {
+        // 这里是你的函数逻辑
+        // 例如，从服务器获取数据
+        // const response = await fetch('http://your-api-endpoint');
+        // const data = await response.json();
+        // 更新你的响应式数据
+        // music_list.musics = data;
+        try{
+          const response = await axios.get('http://localhost:7986/getlist');
+          music_list.value.musics = response.data.musics;
+          user.value.music_nums = response.data.count;
+        }catch(error){
+          console.error('Error fetching data:', error);
+        }
+      };
+      onMounted(()=>{fetchList()});
       return {user,music_list};
     }
   }
