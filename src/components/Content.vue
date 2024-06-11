@@ -15,8 +15,9 @@ export default{
 </script>
 
 <style scoped>
-  .card{
-    margin-top: 20px;
-    height : 670px;
-  }
+.card{
+  margin-top: 20px;
+  flex: 1; /* 占满剩余空间 */
+  margin-bottom: 10px; /* 内容区域的内边距 */
+}
 </style>

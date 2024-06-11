@@ -18,7 +18,6 @@
   import UserInfo from '../components/UserInfo';
   import MusicList from '../components/MusicList';
   import Upload from '../components/Upload';
-  import AudioBar from '../components/AudioBar';
   import APlayer from "aplayer"; // 引入音乐插件
   import "aplayer/dist/APlayer.min.css"; // 引入音乐插件的样式
   import {onMounted, reactive, ref} from 'vue';
@@ -30,7 +29,6 @@
       UserInfo,
       MusicList,
       Upload,
-      AudioBar,
     },
     data() {
       return {
@@ -55,12 +53,6 @@
       });
       let ap = ref(null);
       const fetchList = async () => {
-        // 这里是你的函数逻辑
-        // 例如，从服务器获取数据
-        // const response = await fetch('http://your-api-endpoint');
-        // const data = await response.json();
-        // 更新你的响应式数据
-        // music_list.musics = data;
         try{
           const response = await axios.get('http://localhost:7986/getlist');
           music_list.value.musics = response.data.musics;
@@ -89,8 +81,9 @@
 
 <style scoped>
 #aplayer {
-  position:absolute;
-  width: 100%;
+  position: fixed;
   bottom: 0;
+  width: 100%;
+  z-index: 9999;
 }
 </style>
