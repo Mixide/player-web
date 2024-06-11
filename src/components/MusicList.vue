@@ -1,7 +1,7 @@
 <template>
   <div class="card list">
     <div class="card-body">
-      <div v-for="music in list.musics" :key="music.id">
+      <div v-for="(music, index) in list.musics" :key="index" @click="handleCardClick(index)">
         <div class="card music">
           <div class="card-body">
             <div class="row">
@@ -26,7 +26,16 @@
       },
       ap:{
         type:Object,
-        required:false
+        required:true
+      }
+    },
+    watch: {
+    // 监听 musicList prop 的变化
+      ap: {}
+    },
+    methods: {
+      handleCardClick(index) {
+        this.ap.value.list.switch(index);
       }
     }
   }
