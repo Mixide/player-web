@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-3">
           <UserInfo :user="user" />
-          <Upload/>
+          <Upload :id="user.id"/>
         </div>
         <div class="col-9">
           <MusicList :list="music_list"  :ap="ap"/>
@@ -54,7 +54,7 @@
       let ap = ref(null);
       const fetchList = async () => {
         try{
-          const response = await axios.get('http://localhost:7986/getlist');
+          const response = await axios.get('http://localhost:7986/getlist/'+user.value.id);
           music_list.value.musics = response.data.musics;
           user.value.music_nums = response.data.count;
           ap.value = ref(new APlayer({

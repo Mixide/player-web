@@ -15,6 +15,12 @@ import axios from 'axios';
 
 export default {
   name: 'Upload',
+  props:{
+    id:{
+      type:Object,
+      required:true
+    },
+  },
   data() {
     return {
       files: [] // 用于存储选择的文件
@@ -34,7 +40,7 @@ export default {
         });
 
         // 使用axios发送文件
-        axios.post('http://localhost:7986/upload', formData, {
+        axios.post('http://localhost:7986/upload/'+this.id, formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
