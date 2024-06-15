@@ -5,6 +5,6 @@
 
 先使用npm install 安装依赖包
 
-在项目中的`server`文件夹中打开终端输入`go run server/main.go`启动后端基本服务  
+启动另一个项目对应的django后端
 
 项目根目录打开终端再输入`npm run serve`启动页面
