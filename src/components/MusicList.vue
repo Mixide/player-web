@@ -35,7 +35,9 @@
     },
     methods: {
       handleCardClick(index) {
+        this.ap.value.pause()
         this.ap.value.list.switch(index);
+        this.ap.value.play();
       }
     }
   }

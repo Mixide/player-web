@@ -54,12 +54,13 @@
       let ap = ref(null);
       const fetchList = async () => {
         try{
-          const response = await axios.get('http://localhost:7986/getlist/'+user.value.id);
-          music_list.value.musics = response.data.musics;
-          user.value.music_nums = response.data.count;
+          const response = await axios.get('http://localhost:8000/api/music/');
+          console.log(response)
+          music_list.value.musics = response.data;
+          user.value.music_nums = response.data.length;
           ap.value = ref(new APlayer({
             container: document.getElementById("aplayer"),
-            audio: response.data.musics, // 音乐信息
+            audio: response.data, // 音乐信息
             fixed: false, // 不开启吸底模式
             listFolded: true, // 折叠歌曲列表
             autoplay: false, // 开启自动播放

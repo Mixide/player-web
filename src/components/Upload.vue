@@ -40,7 +40,7 @@ export default {
         });
 
         // 使用axios发送文件
-        axios.post('http://localhost:7986/upload/'+this.id, formData, {
+        axios.post('http://localhost:8000/api/upload/', formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
