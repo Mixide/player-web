@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import { postMusic } from '@/api';
 
 export default {
   name: 'Upload',
@@ -40,17 +40,11 @@ export default {
         });
 
         // 使用axios发送文件
-        axios.post('http://localhost:8000/api/upload/', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data'
-          }
-        })
-        .then(response => {
+        postMusic(formData).then(response => {
           console.log('文件上传成功', response);
           // 重置文件列表
           window.location.reload();
-        })
-        .catch(error => {
+        }).catch(error => {
           console.error('文件上传失败', error);
         });
       }

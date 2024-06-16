@@ -21,7 +21,7 @@
   import APlayer from "aplayer"; // 引入音乐插件
   import "aplayer/dist/APlayer.min.css"; // 引入音乐插件的样式
   import {onMounted, reactive, ref} from 'vue';
-  import axios from 'axios';
+  import { getMusic } from '@/api';
   export default {
     name: 'MusicSpace',
     components:{
@@ -54,7 +54,7 @@
       let ap = ref(null);
       const fetchList = async () => {
         try{
-          const response = await axios.get('http://localhost:8000/api/music/');
+          const response = await getMusic();
           console.log(response)
           music_list.value.musics = response.data;
           user.value.music_nums = response.data.length;
