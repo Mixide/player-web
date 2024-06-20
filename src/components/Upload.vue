@@ -40,7 +40,7 @@ export default {
         });
 
         // 使用axios发送文件
-        postMusic(formData).then(response => {
+        postMusic(formData,this.id).then(response => {
           console.log('文件上传成功', response);
           // 重置文件列表
           window.location.reload();

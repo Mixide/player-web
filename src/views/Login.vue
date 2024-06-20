@@ -1,11 +1,21 @@
 <template>
   <Content>
-    登录
-    <form @submit.prevent="handleLogin">
-      <input v-model="username" type="text" placeholder="用户名" required />
-      <input v-model="password" type="password" placeholder="密码" required />
-      <button type="submit">登录</button>
-    </form>
+    <div class="row justify-content-md-center">
+      <div class="col-3">
+        <form @submit.prevent="handleLogin">
+          <div class="mb-3">
+            <label for="username" class="form-label">用户名</label>
+            <input v-model="username" type="text" class="form-control" id="username" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">密码</label>
+            <input v-model="password" type="password" class="form-control" id="password" required>
+          </div>
+          <div class="error-message">{{ error_message }}</div>
+          <button type="submit" class="btn btn-primary">登录</button>
+        </form>
+      </div>
+    </div>
   </Content>
 </template>
 
@@ -22,6 +32,7 @@ export default {
     return {
       username: '',
       password: '',
+      error_message: '',
     };
   },
   methods: {
@@ -30,15 +41,19 @@ export default {
       this.login({
         username: this.username,
         password: this.password,
-        success: () => {
+        success: (response) => {
+          if(response.data.code == -1){
+            alert(response.data.msg)
+          }
           // 登录成功后的其他操作，例如跳转到主页
-          this.$router.push('/');
+          else
+            this.$router.push('/');
         },
         error: () => {
           // 处理登录失败逻辑
           console.error('登录失败');
           // 显示错误消息
-          alert('登录失败，请检查用户名和密码');
+         
         },
       });
     },

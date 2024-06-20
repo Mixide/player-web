@@ -51,15 +51,13 @@
         photo: "http://localhost:8000/static/image/photo.ico",
         music_nums: 0,
       });
-      console.log(user)
       const music_list = ref({
         musics:[]
       });
       let ap = ref(null);
       const fetchList = async () => {
         try{
-          const response = await getMusic();
-          console.log(response)
+          const response = await getMusic(user.value.id);
           music_list.value.musics = response.data;
           user.value.music_nums = response.data.length;
           ap.value = ref(new APlayer({

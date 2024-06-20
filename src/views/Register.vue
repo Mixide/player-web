@@ -1,15 +1,26 @@
 <template>
   <Content>
-    用户名：<input type="text" v-model="username"> <br>
-    密码：<input type="pasword" v-model="password"> <br>
-    <button @click="submit">注册</button> <br>
-    <router-link to="/login">登录</router-link>
+    <div class="row justify-content-md-center">
+      <div class="col-3">
+        <form @submit.prevent="submit">
+          <div class="mb-3">
+            <label for="username" class="form-label">用户名</label>
+            <input v-model="username" type="text" class="form-control" id="username">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">密码</label>
+            <input v-model="password" type="password" class="form-control" id="password">
+          </div>
+          <button type="submit" class="btn btn-primary">注册</button>
+        </form>
+      </div>
+    </div>
   </Content>
 </template>
 
 <script>
+  import { postRegister } from '@/api';
   import Content from '../components/Content';
-  import axios from 'axios';
   export default {
     name: 'Register',
     components:{
@@ -23,10 +34,12 @@
     },
     methods: {
       submit() {
-        axios.post('http://localhost:8000/api/user/register/', {"username": this.username, "password": this.password})
+        postRegister(this.username,this.password)
         .then((response) => {
             alert(response.data.msg)
-        })
+        }).catch(error => {
+          console.error('注册失败', error);
+        });
       }
     }
   }

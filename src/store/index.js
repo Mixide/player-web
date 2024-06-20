@@ -2,6 +2,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
+import { postLogin } from '@/api';
 
 
 
@@ -22,14 +23,10 @@ export default new Vuex.Store({
   actions: {
     async login({ commit }, { username, password, success, error }) {
       try {
-        const response = await axios.post('http://localhost:8000/api/user/login/', {
-          username,
-          password,
-        });
+        const response = await postLogin(username,password);
         const user = response.data.userinfo;
-        console.log(user)
         commit('SET_USER', user);
-        success();
+        success(response);
       } catch (err) {
         error();
       }
