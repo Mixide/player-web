@@ -22,6 +22,7 @@
   import "aplayer/dist/APlayer.min.css"; // 引入音乐插件的样式
   import {onMounted, reactive, ref} from 'vue';
   import { getMusic } from '@/api';
+  import { useStore } from 'vuex';
   export default {
     name: 'MusicSpace',
     components:{
@@ -43,11 +44,14 @@
       };
     },
     setup() {
-      const user = ref({
+      const store = useStore();
+      const user = ref(store.getters.user || JSON.parse(localStorage.getItem('user')) || {
         id: 1,
         username: "test",
+        photo: "http://localhost:8000/static/image/photo.ico",
         music_nums: 0,
       });
+      console.log(user)
       const music_list = ref({
         musics:[]
       });
