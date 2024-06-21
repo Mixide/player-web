@@ -1,5 +1,6 @@
 <template>
   <Content>
+    登录
     <div class="row justify-content-md-center">
       <div class="col-3">
         <form @submit.prevent="handleLogin">

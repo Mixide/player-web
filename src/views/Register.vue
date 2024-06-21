@@ -1,5 +1,6 @@
 <template>
   <Content>
+    注册
     <div class="row justify-content-md-center">
       <div class="col-3">
         <form @submit.prevent="submit">
