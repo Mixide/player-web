@@ -8,9 +8,17 @@ export const getMusic = (id) => {return axios.get('http://localhost:8000/api/mus
   });
 }
 
+export const postImage = (formData,id) => {
+  formData.append('userid', id);
+  return axios.post('http://localhost:8000/api/uploadimage/', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  });
+}
 export const postMusic = (formData,id) => {
   formData.append('userid', id);
-  return axios.post('http://localhost:8000/api/upload/', formData, {
+  return axios.post('http://localhost:8000/api/uploadmusic/', formData, {
     headers: {
       'Content-Type': 'multipart/form-data'
     }

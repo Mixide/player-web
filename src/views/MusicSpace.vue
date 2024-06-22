@@ -46,6 +46,7 @@
     setup() {
       const store = useStore();
       const user = ref(store.getters.user || JSON.parse(localStorage.getItem('user')));
+      console.log(user.value.photo)
       const music_list = ref({
         musics:[]
       });

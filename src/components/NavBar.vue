@@ -33,12 +33,12 @@
 import { useStore } from 'vuex';
 import { mapActions } from 'vuex';
 export default{
-    name:'NavBar',
-    setup() {
-      const store = useStore();
-      return {store};
-    },
-    methods: {
+  name:'NavBar',
+  setup() {
+    const store = useStore();
+    return {store};
+  },
+  methods: {
     ...mapActions(['logout']),
     handleLogout() {
       this.logout();

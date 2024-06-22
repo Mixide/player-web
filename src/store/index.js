@@ -19,6 +19,10 @@ export default new Vuex.Store({
       state.user = null;
       localStorage.removeItem('user');
     },
+    UPDATE_USER_PHOTO(state, photoUrl) {
+      state.user.photo = photoUrl;
+      localStorage.setItem('user', JSON.stringify(state.user));
+    },
   },
   actions: {
     async login({ commit }, { username, password, success, error }) {
@@ -33,6 +37,9 @@ export default new Vuex.Store({
     },
     logout({ commit }) {
       commit('CLEAR_USER');
+    },
+    updateUserPhoto({ commit }, photoUrl) {
+      commit('UPDATE_USER_PHOTO', photoUrl);
     },
   },
   getters: {
