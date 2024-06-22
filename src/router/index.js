@@ -3,12 +3,13 @@ import Login from '../views/Login.vue';
 import MusicSpace from '../views/MusicSpace.vue';
 import Register from '../views/Register.vue';
 import NotFound from '../views/NotFound.vue';
-
+import store from '../store';
 const routes = [
   {
     path: '/',
     name: 'musicspace',
-    component:MusicSpace
+    component:MusicSpace,
+    meta: { requiresAuth: true },
   },
   {
     path: '/login/',
@@ -35,5 +36,15 @@ const router = createRouter({
   history: createWebHistory(),
   routes
 })
-
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (!store.getters.isLoggedIn) {
+      next('/login');
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+});
 export default router

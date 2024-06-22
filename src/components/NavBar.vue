@@ -11,12 +11,17 @@
           <router-link class="nav-link" :to="{name:'musicspace'}">音乐空间</router-link>
         </li>
       </ul>
-      <ul class="navbar-nav">
+      <ul class="navbar-nav" v-if="!store.getters.isLoggedIn">
         <li class="nav-item">
           <router-link class="nav-link" :to="{name:'login'}">登录</router-link>
         </li>
         <li class="nav-item">
           <router-link class="nav-link" :to="{name:'register'}">注册</router-link>
+        </li>
+      </ul>
+      <ul class="navbar-nav" v-else>
+        <li class="nav-item">
+          <a class="nav-link" style="cursor: pointer" @click="handleLogout">退出</a>
         </li>
       </ul>
     </div>
@@ -25,10 +30,21 @@
 </template>
 
 <script>
-import router from '@/router';
-
+import { useStore } from 'vuex';
+import { mapActions } from 'vuex';
 export default{
-    name:'NavBar',
+  name:'NavBar',
+  setup() {
+    const store = useStore();
+    return {store};
+  },
+  methods: {
+    ...mapActions(['logout']),
+    handleLogout() {
+      this.logout();
+      this.$router.push('/login/');
+    },
+  },
 }
 </script>
 <style scoped>
