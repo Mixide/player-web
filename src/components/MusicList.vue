@@ -1,16 +1,18 @@
 <template>
   <div class="card list">
     <div class="card-body">
-      <div v-for="(music, index) in list.musics" :key="index" @click="handleCardClick(index)">
-        <div class="card music">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-10 music_name">{{ music.name }}</div>
-              <div class="col-2 artist">歌手：{{ music.artist }}</div>
+      <div class="scrollable-container">
+        <div v-for="(music, index) in list.musics" :key="index" @click="handleCardClick(index)">
+          <div class="card music">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-10 music_name">{{ music.name }}</div>
+                <div class="col-2 artist">歌手：{{ music.artist }}</div>
+              </div>
             </div>
           </div>
-        </div>
       </div>  
+      </div>
     </div>
   </div>
 </template>
@@ -48,8 +50,9 @@
     font-size: 14px;
     color: gray;
 }  
-.list {
+.scrollable-container {
   height: 620px;
+  overflow: auto;
 }
 .music {
   margin-top: 10px;

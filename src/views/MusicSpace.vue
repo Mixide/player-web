@@ -45,12 +45,7 @@
     },
     setup() {
       const store = useStore();
-      const user = ref(store.getters.user || JSON.parse(localStorage.getItem('user')) || {
-        id: 1,
-        username: "test",
-        photo: "http://localhost:8000/static/image/photo.ico",
-        music_nums: 0,
-      });
+      const user = ref(store.getters.user || JSON.parse(localStorage.getItem('user')));
       const music_list = ref({
         musics:[]
       });
