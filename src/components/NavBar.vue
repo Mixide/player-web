@@ -3,6 +3,7 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="#">在线音乐</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <img src="../assets/audio256.png" alt="Logo" width="35" height="35">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
