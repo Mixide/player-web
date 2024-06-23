@@ -4,12 +4,18 @@ import MusicSpace from '../views/MusicSpace.vue';
 import Register from '../views/Register.vue';
 import NotFound from '../views/NotFound.vue';
 import store from '../store';
+import Home from '../views/Home.vue';
 const routes = [
   {
     path: '/',
     name: 'musicspace',
     component:MusicSpace,
     meta: { requiresAuth: true },
+  },
+  {
+    path: '/home/',
+    name: 'home',
+    component:Home
   },
   {
     path: '/login/',
