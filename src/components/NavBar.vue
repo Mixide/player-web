@@ -1,10 +1,10 @@
 <template>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">
+    <router-link class="nav-link" :to="{name:'home'}">
       <img src="../assets/audio256.png" alt="Logo" width="35" height="35">
       在线音乐
-    </a>
+    </router-link>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -58,6 +58,11 @@ export default{
       this.logout();
       this.$router.push('/login/');
     },
+    search() {
+      // 执行搜索逻辑，处理查询字符串
+      // ...
+      // 跳转到搜索结果页面或执行其他操作
+    }
   },
   data() {
     return {
@@ -65,13 +70,6 @@ export default{
       query: ''
     }
   },
-  methods: {
-    search() {
-      // 执行搜索逻辑，处理查询字符串
-      // ...
-      // 跳转到搜索结果页面或执行其他操作
-    }
-  }
 }
 </script>
 
