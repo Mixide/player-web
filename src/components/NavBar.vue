@@ -1,7 +1,7 @@
 <template>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/home/">
       <img src="../assets/audio256.png" alt="Logo" width="35" height="35">
       在线音乐
     </a>
