@@ -7,13 +7,13 @@ import store from '../store';
 import Home from '../views/Home.vue';
 const routes = [
   {
-    path: '/',
+    path: '/musicspace',
     name: 'musicspace',
     component:MusicSpace,
     meta: { requiresAuth: true },
   },
   {
-    path: '/home/',
+    path: '/',
     name: 'home',
     component:Home
   },
