@@ -18,7 +18,8 @@
 </template>
 
 <script>
-
+import { useStore } from 'vuex';
+import {ref, watch } from 'vue';
   export default{
     name:"MusicList",
     props:{
@@ -26,22 +27,23 @@
         type:Object,
         required:true
       },
-      ap:{
-        type:Object,
-        required:true
-      }
     },
     watch: {
     // 监听 musicList prop 的变化
-      ap: {}
+      list: {},
     },
-    methods: {
-      handleCardClick(index) {
-        this.ap.value.pause()
-        this.ap.value.list.switch(index);
-        this.ap.value.play();
+    setup(){
+      const store = useStore();
+      const ap = ref(store.getters.aplayer);
+      
+      const handleCardClick = (index) => {
+        console.log(ap)
+        ap.value.pause()
+        ap.value.list.switch(index);
+        ap.value.play();
       }
-    }
+      return {ap,handleCardClick};
+    },
   }
 </script>
 

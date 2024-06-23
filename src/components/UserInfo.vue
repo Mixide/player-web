@@ -18,7 +18,9 @@
 <script>
 import { postImage } from '@/api';
 import { mapActions } from 'vuex';
+import { useStore } from 'vuex';
 export default{
+  
   name: "UserInfo",
   props:{
     user:{
@@ -26,6 +28,10 @@ export default{
         required:true,
     }
   },
+  watch: {
+    // 监听 musicList prop 的变化
+      user: {}
+    },
   data() {
     return {
       files: [] // 用于存储选择的文件
