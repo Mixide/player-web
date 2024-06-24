@@ -48,6 +48,16 @@ export default{
         // 创建一个FormData对象，用于发送文件
         const formData = new FormData();
         this.files.forEach(file => {
+          const isLt2M = file.size / 1024 /1024 <2;
+          if (!isLt2M) {
+            alert('上传的图片大小不能超过2MB!')
+            return;
+          }
+          const fileType = file.type;
+          if (!fileType.startsWith('image/')) {
+            alert('只能上传图片文件!');
+            return;
+          }
           formData.append('file', file);
         });
 
