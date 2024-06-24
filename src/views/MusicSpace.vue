@@ -6,7 +6,7 @@
           <Upload :id="user.id"/>
         </div>
         <div class="col-9">
-          <MusicList :list="music_list"/>
+          <MusicList :list="music_list" :id="user.id"/>
         </div>
       </div>
   </Content>

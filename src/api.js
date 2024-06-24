@@ -38,3 +38,12 @@ export const postRegister = (username,password) => {
     "password": password
   });   
 }
+
+export const postDelete = (userid,musicid) => {
+  console.log(userid);
+  console.log(userid);
+  return axios.post('http://localhost:8000/api/deletemusic/', {
+    "userid": userid, 
+    "musicid": musicid
+  });
+}

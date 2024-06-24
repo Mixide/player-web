@@ -36,8 +36,8 @@ export default {
         // 创建一个FormData对象，用于发送文件
         const formData = new FormData();
         this.files.forEach(file => {
-          const isLt2M = file.size / 1024 /1024 <20;
-          if (!isLt2M) {
+          const isLt20M = file.size / 1024 /1024 <20;
+          if (!isLt20M) {
             alert('上传的文件大小不能超过20MB!')
             return;
           }

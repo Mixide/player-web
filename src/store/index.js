@@ -21,11 +21,9 @@ export default new Vuex.Store({
       state.user = null;
       localStorage.removeItem('user');
     },
-    DESTROY_AP(state) {
-      state.ap.value.destroy();
-    },
     UPDATE_MUSIC(state,music){
       state.music = music;
+      state.user.music_nums = music.length
     },
     UPDATE_APLAYER(state,ap){
       state.ap = ap;
@@ -48,7 +46,6 @@ export default new Vuex.Store({
     },
     logout({ commit }) {
       commit('CLEAR_USER');
-      commit('DESTROY_AP');
       window.location.reload();
     },
     updateUserPhoto({ commit }, photoUrl) {

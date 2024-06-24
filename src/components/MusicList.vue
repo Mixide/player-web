@@ -10,6 +10,7 @@
                 <div class="col-2 artist">歌手：{{ music.artist }}</div>
               </div>
             </div>
+            <button class="delete-button" @click.stop="handleDelete(index)">删除</button>
           </div>
       </div>  
       </div>
@@ -20,10 +21,15 @@
 <script>
 import { useStore } from 'vuex';
 import {ref, watch } from 'vue';
+import { postDelete } from '@/api';
   export default{
     name:"MusicList",
     props:{
       list:{
+        type:Object,
+        required:true
+      },
+      id:{
         type:Object,
         required:true
       },
@@ -32,17 +38,28 @@ import {ref, watch } from 'vue';
     // 监听 musicList prop 的变化
       list: {},
     },
-    setup(){
+    setup(props){
       const store = useStore();
-      const ap = ref(store.getters.aplayer);
-      
+      let ap = ref(store.getters.aplayer);
+      watch(
+        () => store.getters.aplayer,
+        () => {
+          ap= ref(store.getters.aplayer);
+        }
+      );
       const handleCardClick = (index) => {
         console.log(ap)
         ap.value.pause()
         ap.value.list.switch(index);
         ap.value.play();
       }
-      return {ap,handleCardClick};
+      const handleDelete = (index) => {
+        //ap.value.list.remove(index);
+        //props.list.musics.splice(index, 1);
+        postDelete(props.id,props.list.musics[index].id);
+        window.location.reload();
+      };
+      return {ap,handleCardClick,handleDelete};
     },
   }
 </script>

@@ -19,6 +19,7 @@
 import { postImage } from '@/api';
 import { mapActions } from 'vuex';
 import { useStore } from 'vuex';
+import { watch } from 'vue';
 export default{
   
   name: "UserInfo",
@@ -35,6 +36,19 @@ export default{
   data() {
     return {
       files: [] // 用于存储选择的文件
+    };
+  },
+  setup() {
+    const store = useStore();
+
+    // 监听 store.getters.user 的变化
+    watch(() => store.getters.user, () => {
+      // 当 store.getters.user 变化时，更新组件的 user prop
+      user = store.getters.user
+    });
+
+    return {
+      // 其他返回的值...
     };
   },
   methods: {
