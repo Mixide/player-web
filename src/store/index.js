@@ -9,6 +9,8 @@ import { postLogin } from '@/api';
 export default new Vuex.Store({
   state: {
     user: localStorage.getItem('user') != "undefined" ? JSON.parse(localStorage.getItem('user')) : null,
+    music: [],
+    ap: null
   },
   mutations: {
     SET_USER(state, user) {
@@ -18,6 +20,13 @@ export default new Vuex.Store({
     CLEAR_USER(state) {
       state.user = null;
       localStorage.removeItem('user');
+    },
+    UPDATE_MUSIC(state,music){
+      state.music = music;
+      state.user.music_nums = music.length
+    },
+    UPDATE_APLAYER(state,ap){
+      state.ap = ap;
     },
     UPDATE_USER_PHOTO(state, photoUrl) {
       state.user.photo = photoUrl;
@@ -37,13 +46,22 @@ export default new Vuex.Store({
     },
     logout({ commit }) {
       commit('CLEAR_USER');
+      window.location.reload();
     },
     updateUserPhoto({ commit }, photoUrl) {
       commit('UPDATE_USER_PHOTO', photoUrl);
+    },
+    updateMusic({ commit }, music) {
+      commit('UPDATE_MUSIC', music);
+    },
+    updatePlayer({ commit }, ap) {
+      commit('UPDATE_APLAYER', ap);
     },
   },
   getters: {
     isLoggedIn: state => !!state.user,
     user: state => state.user,
+    music: state => state.music,
+    aplayer: state => state.ap
   },
 });

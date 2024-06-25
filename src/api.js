@@ -1,11 +1,16 @@
 import Vue from 'vue'
 import axios from 'axios'
 
-export const getMusic = (id) => {return axios.get('http://localhost:8000/api/music/',{
+export const getMusic = (id) => {return axios.get('http://localhost:8000/api/musicspace/',{
     params: {
       userid: id
     }
   });
+}
+
+export const discover = () => {return axios.get('http://localhost:8000/api/discover/',{
+
+});
 }
 
 export const postImage = (formData,id) => {
@@ -37,4 +42,13 @@ export const postRegister = (username,password) => {
     "username": username, 
     "password": password
   });   
+}
+
+export const postDelete = (userid,musicid) => {
+  console.log(userid);
+  console.log(userid);
+  return axios.post('http://localhost:8000/api/deletemusic/', {
+    "userid": userid, 
+    "musicid": musicid
+  });
 }

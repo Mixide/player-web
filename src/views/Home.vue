@@ -24,13 +24,11 @@ export default {
         { id: 2, imageUrl: require('@/assets/2.jpg'), caption: "Hello" },
         { id: 3, imageUrl: require('@/assets/3.jpg'), caption: "Hello" },
         { id: 4, imageUrl: require('@/assets/4.jpg'), caption: "Hello" },
-      ]
-    }
-    
-  }
-  
-  
+      ],
+    };
+  },
 }
+
 </script>
 
 <style scoped>
