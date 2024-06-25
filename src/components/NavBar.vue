@@ -16,6 +16,12 @@
         </li>
       </ul>
 
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <router-link class="nav-link" :to="{name:'discover'}">发现音乐</router-link>
+        </li>
+      </ul>
+
       <form @submit.prevent="search">
         <img src="../assets/search.png" alt="Search" width="35" height="35">
         <el-input v-model="input" style="width: 240px" placeholder="搜索音乐"/> 

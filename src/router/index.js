@@ -3,6 +3,7 @@ import Login from '../views/Login.vue';
 import MusicSpace from '../views/MusicSpace.vue';
 import Register from '../views/Register.vue';
 import NotFound from '../views/NotFound.vue';
+import Discover from '../views/Discover.vue';
 import store from '../store';
 import Home from '../views/Home.vue';
 const routes = [
@@ -11,6 +12,11 @@ const routes = [
     name: 'musicspace',
     component:MusicSpace,
     meta: { requiresAuth: true },
+  },
+  {
+    path: '/discover/',
+    name: 'discover',
+    component:Discover,
   },
   {
     path: '/',

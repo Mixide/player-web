@@ -1,11 +1,16 @@
 import Vue from 'vue'
 import axios from 'axios'
 
-export const getMusic = (id) => {return axios.get('http://localhost:8000/api/music/',{
+export const getMusic = (id) => {return axios.get('http://localhost:8000/api/musicspace/',{
     params: {
       userid: id
     }
   });
+}
+
+export const discover = () => {return axios.get('http://localhost:8000/api/discover/',{
+
+});
 }
 
 export const postImage = (formData,id) => {
