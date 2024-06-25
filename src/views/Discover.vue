@@ -33,7 +33,7 @@
       (async () => {
         try {
           const response = await discover();  // 调用 discover 函数获取歌曲信息
-          const musicData = response.data;    // 假设响应数据是一个包含歌曲信息的对象或数组
+          musicData.value = response.data;    // 假设响应数据是一个包含歌曲信息的对象或数组
           console.log(musicData);             // 输出歌曲信息
         } catch (error) {
           console.error(error); // 处理错误
