@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import axios from 'axios'
 
-export const getMusic = (id) => {return axios.get('http://localhost:8000/api/musicspace/',{
+export const getMusic = (id) => {return axios.get('http://localhost:8000/api/music/',{
     params: {
       userid: id
     }

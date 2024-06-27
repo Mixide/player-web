@@ -17,7 +17,7 @@
   import UserInfo from '../components/UserInfo';
   import MusicList from '../components/MusicList';
   import Upload from '../components/Upload';
-  import {ref, watch } from 'vue';
+  import { ref, watch } from 'vue';
   import { useStore } from 'vuex';
   export default {
     name: 'MusicSpace',
@@ -30,12 +30,12 @@
     data() {
       return {
         info: {
-          fixed: false, // 不开启吸底模式
-          listFolded: true, // 折叠歌曲列表
-          autoplay: false, // 开启自动播放
-          preload: "none", // 自动预加载歌曲
-          loop: "all", // 播放循环模式、all全部循环 one单曲循环 none只播放一次
-          order: "list", //  播放模式，list列表播放, random随机播放
+          fixed: false,       // 不开启吸底模式
+          listFolded: true,   // 折叠歌曲列表
+          autoplay: false,    // 开启自动播放
+          preload: "none",    // 自动预加载歌曲
+          loop: "all",        // 播放循环模式、all全部循环 one单曲循环 none只播放一次
+          order: "list",      // 播放模式，list列表播放, random随机播放
         },
       };
     },

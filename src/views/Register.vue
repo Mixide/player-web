@@ -1,8 +1,8 @@
 <template>
-  <Content>
-    注册
+  <Content style="margin-top: 200px;  width: 500px;">
     <div class="row justify-content-md-center">
       <div class="col-3">
+        <h2 class="text-center" style="font-size: 25px; font-weight: bold; margin-bottom: 50px;">注册</h2>
         <form @submit.prevent="submit">
           <div class="mb-3">
             <label for="username" class="form-label">用户名</label>
